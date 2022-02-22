@@ -8,6 +8,9 @@
 # SMT
 #
 
+import adcc
+from adcc.functions import einsum
+
 def ucc3_t1_update(t1_in, t2_in, hf, df1, itm1_ooov, itm2_ovvv)
     return (
         einsum('jaib,jb->ia', -1.0 * hf.ovov, t1_in) 
