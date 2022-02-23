@@ -9,7 +9,7 @@ from pyscf import gto, scf
 from geometries import geoms
 from ucc3_itm import ucc3_intermediates
 
-use_itm = True
+use_itm = False
 
 def update_ucc3_t1(t1_in, t2_in, hf, df1):
     return (
