@@ -218,13 +218,13 @@ class LazyMp:
         ret = OneParticleOperator(self.mospaces, is_symmetric=True)
         # NOTE: the following 3 blocks are equivalent to the cvs_p0 intermediates
         # defined at the end of this file
-        ret.oo = -0.5 * einsum("ikab,jkab->ij", self.t2oo, self.t2oo) - einsum("ia,ja->ij", self.t1, self.t1)
+        ret.oo = -0.5 * einsum("ikab,jkab->ij", self.t2oo, self.t2oo)
         #ret.ov = -0.5 * (
         #    + einsum("ijbc,jabc->ia", self.t2oo, hf.ovvv)
         #    + einsum("jkib,jkab->ia", hf.ooov, self.t2oo)
         #) / self.df(b.ov)
         ret.ov = self.t1 - 0.5 * einsum("ijab,jb->ia", self.t2oo, self.t1)
-        ret.vv = 0.5 * einsum("ijac,ijbc->ab", self.t2oo, self.t2oo) + einsum("ia,ib->ab", self.t1, self.t1)
+        ret.vv = 0.5 * einsum("ijac,ijbc->ab", self.t2oo, self.t2oo)
 
         if self.has_core_occupied_space:
             # additional terms to "revert" CVS for ground state density
