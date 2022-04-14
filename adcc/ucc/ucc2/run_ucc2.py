@@ -23,5 +23,5 @@ ucc2 = LazyUcc2(refstate)
 print("MP2 energy = ", mp2.energy(level=2))
 print("UCC2 energy = ", ucc2.energy(level=2))
 
-#state = adcc.adc2(ucc2, n_singlets=10)
-#print(state.describe())
+state = adcc.adc2(ucc2, n_singlets=4, conv_tol = 1e-8)
+print(state.describe())
